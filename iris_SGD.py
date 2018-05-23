@@ -1,10 +1,13 @@
 #!/usr/local/bin/python3
 
+# page 52
+
 import numpy as np
 import chainer.functions as F
 import chainer.links as L
 from chainer import Variable, optimizers
-from chainer import FunctionSet
+#from chainer import FunctionSet
+from chainer import Chain
 import matplotlib.pyplot as plt
 from sklearn import datasets
 
@@ -24,7 +27,8 @@ ytrain = target[index[0:75],:]
 xtest = X[index[75:150],:]
 yans = target[index[75:150]]
 
-NNset = FunctionSet(l1 = F.Linear(4,3))
+#NNset = FunctionSet(l1 = L.Linear(4,3))
+NNset = Chain(l1 = L.Linear(4,3))
 
 def model(x):
     y = F.sigmoid(NNset.l1(x))
@@ -55,6 +59,7 @@ plt.ylabel('loss function')
 plt.xlim([0,Tall])
 plt.ylim([0,0.5])
 plt.show()
+<<<<<<< HEAD:iris_SGD.py
 
 xtest = Variable(xtest)
 ytest = model(xtest)
@@ -66,3 +71,5 @@ for i in range(75):
         ok += 1
 print(ok,"/",75,"=",(ok*1.0)/75)
 
+=======
+>>>>>>> 1341bb043ad4bf173bb15858924a4b62114a7bfd:iris.py
