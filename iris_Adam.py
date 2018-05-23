@@ -46,3 +46,23 @@ for i in range(Tall):
     loss.backward()
     optimizer.update()
     train_loss.append(loss.data)
+
+plt.figure(figsize=(8,6))
+plt.plot(range(Tall),train_loss)
+plt.title('optimization vol2')
+plt.xlabel('step')
+plt.ylabel('loss function')
+plt.xlim([0,Tall])
+plt.ylim([0,0.5])
+plt.show()
+
+xtest = Variable(xtest)
+ytest = model(xtest)
+ok = 0
+for i in range(75):
+    cls1 = np.argmax(ytest.data[i,:])
+    cls2 = np.argmax(yans[i,:])
+    if cls1 == cls2:
+        ok += 1
+print(ok,"/",75,"=",(ok*1.0)/75)
+
