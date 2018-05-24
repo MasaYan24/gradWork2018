@@ -1,5 +1,7 @@
 #!/usr/local/bin/python3
 
+#p.139
+
 import numpy as np
 import chainer.functions as F
 import chainer.links as L
