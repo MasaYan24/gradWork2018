@@ -65,7 +65,7 @@ plt.xlabel('step')
 plt.ylabel('loss function')
 plt.xlim([0,Tall])
 plt.ylim([0,0.5])
-plt.show()
+#plt.show()
 
 Nh = int(0.5*M)
 NNset = Chain(conv1 = L.Convolution2D(1,32,5),
