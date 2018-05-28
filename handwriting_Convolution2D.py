@@ -1,6 +1,6 @@
 #!/usr/local/bin/python3
 
-#p.139
+#p.150
 
 import numpy as np
 import chainer.functions as F
@@ -44,7 +44,8 @@ optimizer = optimizers.Adam()
 optimizer.setup(NNset)
 
 Nh = int(0.5*M) #M: number of 2D space
-NNset = Chain(conv1 = L.Convolution2D(1,32,5),
+NNset = Chain(
+        conv1 = L.Convolution2D(1,32,5),
         conv2 = L.Convolution2D(32,32,5),
         l1 = L.Linear(13*13*32,Nh),
         l2 = L.Linear(Nh,C))
